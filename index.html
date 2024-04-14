@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    </script>
+    <title>Tax Calculator</title>
+</head>
+<body>
+    <!-- <div class="container"> -->
+        <div class="container1">
+            <div class=" container2">
+                <h1>Tax Calculator</h1>
+                
+                <form method="post" id="myForm">
+                    <div class="mb-3" style="margin-top: 90px;">
+                        <label for="name" class="form-label">Enter gross annual income</label>
+                        <!-- <icon class="bi bi-person" data-bs-toggle="tooltip" title="tooltip" data-bs-placement="top">fsf</icon> -->
+                        <i class="fa fa-question-circle" data-bs-toggle="tooltip" title="Gross Annual income is your total salary in a year before any deductions" data-bs-placement="top"></i>
+                        <div class="wrapper">
+                            <input type="text" class="form-control " id="gross" name="gross" placeholder="Enter Gross annual income" onchange="verify()" >
+                            <i class="fa fa-exclamation-circle" id="xyz" data-tip="xyz" data-bs-toggle="tooltip" title="Please enter numbers only" data-bs-placement="top"></i>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Enter extra income</label>
+                        <!-- <icon class="bi bi-person" data-bs-toggle="tooltip" title="tooltip" data-bs-placement="top">fsf</icon> -->
+                        <i class="fa fa-question-circle" data-bs-toggle="tooltip" title="Extra income is money from any other sources" data-bs-placement="top"></i>
+                        <div class="wrapper">
+                            <input type="text" class="form-control" id="extraIncome" name="extraIncome" placeholder="Enter extra income from other sources" onchange="verify2()">
+                            <i class="fa fa-exclamation-circle" id="xyz2" data-tip="xyz2" data-bs-toggle="tooltip" title="Please enter numbers only" data-bs-placement="top"></i>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Enter Age group</label>
+                        <i class="fa fa-question-circle" data-bs-toggle="tooltip" title="Select the category in which your Age lies" data-bs-placement="top"></i>
+
+                        <select class="form-select" aria-label="Default select example" id="ageCategory">
+                            <option selected>select age group</option>
+                            <option value="1">Age &lt; 40</option>
+                            <option value="2">40 &le; Age &lt; 60</option>
+                            <option value="3">Age &gt; 60</option>
+                            
+                        </select>
+                    </div>
+                    <div class="mb-3" >
+                        <label for="name" class="form-label">Enter Total applicable Deductions</label>
+                        <!-- <icon class="bi bi-person" data-bs-toggle="tooltip" title="tooltip" data-bs-placement="top">fsf</icon> -->
+                        <i class="fa fa-question-circle" data-bs-toggle="tooltip" title="The amount to be deducted" data-bs-placement="top"></i>
+                        <div class="wrapper">
+                            <input type="text" class="form-control" id="deduction" name="deduction" placeholder="Add total applicable deductions" onchange="verify3()">
+                            <i class="fa fa-exclamation-circle" id="xyz3" data-tip="xyz3" data-bs-toggle="tooltip" title="tooltip" data-bs-placement="top"></i>
+                        </div>
+                    </div>
+            
+                    
+               
+
+            <!-- Button trigger modal -->
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="taxcalculator()">
+                    Submit
+                </button>
+            </div>    
+                
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        
+                        <div class="modal-body" style="display: flex; flex-direction: column; align-items: center;">
+                        <h3> Overall income will be</h3>
+                        <h1 id="taxcalculated"></h1> 
+                        <h6></h6>after tax deductions</h6>
+                        </div>
+                        <div class="modal-footer" style="display: flex; align-items: center; justify-content: center;">
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Close</button> -->
+                            <button type="button" class="btn btn-primary " data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+           
+            </div>
+        </form>
+    </div>
+    <!-- </div>   -->
+    
+    
+        
+          
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+</body>
+</html>
